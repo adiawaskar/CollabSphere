@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -7,14 +7,14 @@ const Navbar = () => {
       <div className="text-2xl font-bold text-purple-300">CollabSphere</div>
 
       <div className="flex space-x-6">
-        <Link // Use Link instead of <a>
-          to="/login" // Use 'to' prop instead of 'href'
+        <Link
+          to="/login"
           className="text-purple-200 hover:text-purple-100 font-semibold transition"
         >
           Login
         </Link>
-        <Link // Use Link for Signup as well, if you intend to use it as a route
-          to="/login" // Redirecting Signup to login as requested
+        <Link
+          to="/login"
           className="text-purple-200 hover:text-purple-100 font-semibold transition"
         >
           Signup

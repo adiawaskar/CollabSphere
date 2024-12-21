@@ -4,10 +4,11 @@ const projectSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
     description: { type: String, trim: true },
-    leader_id: { type: String, ref: "User", required: true }, // Referencing by UUID string
-    team_members: [{ type: String, ref: "User" }], // Referencing by UUID string
-    tasks: [{ type: String, ref: "Task" }], // Referencing by UUID string
-    documents: [{ type: String, ref: "Document" }], // Referencing by UUID string
+    leader_email: { type: String, ref: "User", required: true },
+    team_members: [{ type: String, ref: "User" }],
+    tasks: [{ type: String, ref: "Task" }],
+    documents: [{ type: String, ref: "Document" }],
+    team_id: { type: String, required: true, unique: true },
   },
   { timestamps: true }
 );

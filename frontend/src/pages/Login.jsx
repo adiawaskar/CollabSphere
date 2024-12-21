@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { setEmail } = useAuth();
   const [isRegistering, setIsRegistering] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -22,8 +28,25 @@ const LoginPage = () => {
         : "http://localhost:3000/api/auth/login";
       const response = await axios.post(url, formData);
       console.log("Login/Register response:", response.data);
+      toast.success(
+        isRegistering ? "Registration successful!" : "Login successful!"
+      );
+      setEmail(response.data.user.email);
+      navigate("/home");
     } catch (error) {
       console.error("Login/Register error:", error);
+      toast.error("Invalid Credentials. Please try again.");
+      if (error.response) {
+        toast.error(
+          error.response.data.message ||
+            error.response.data.msg ||
+            "An error occurred."
+        );
+      } else if (error.request) {
+        toast.error("No response from server.");
+      } else {
+        toast.error("An error occurred while making the request.");
+      }
     }
   };
 
