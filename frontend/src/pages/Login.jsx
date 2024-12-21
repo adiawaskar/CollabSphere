@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 const LoginPage = () => {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -13,24 +14,40 @@ const LoginPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isRegistering) {
-      console.log("Registering with", formData);
-    } else {
-      console.log("Logging in with", formData.email, formData.password);
+    try {
+      const url = isRegistering
+        ? "http://localhost:3000/api/auth/signup"
+        : "http://localhost:3000/api/auth/login";
+      const response = await axios.post(url, formData);
+      console.log("Login/Register response:", response.data);
+    } catch (error) {
+      console.error("Login/Register error:", error);
     }
   };
 
   useEffect(() => {
+    document.title = isRegistering
+      ? "Create an account"
+      : "Sign in to your account";
+    return () => {
+      document.title = "React App";
+    };
+  }, [isRegistering]);
+
+  useEffect(() => {
     document.title = 'Login | CollabSphere';
     return () => {
-        document.title = 'React App';
+      document.title = 'Vite + React';
     }
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div
+      className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+      style={{ backgroundImage: `url('/landing_bg.jpg')` }}
+    >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           {isRegistering ? "Create an account" : "Sign in to your account"}

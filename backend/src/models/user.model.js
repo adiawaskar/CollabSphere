@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
-import { v4 as uuidv4 } from "uuid";
 
 const userSchema = new mongoose.Schema(
   {
-    _id: { type: String, default: uuidv4 },
     name: { type: String, required: true, trim: true },
     email: {
       type: String,
@@ -19,9 +17,12 @@ const userSchema = new mongoose.Schema(
       default: "Team Member",
     },
     profile_picture: { type: String, default: null },
-    projects: [{ type: String, ref: "Project" }],
+    createdProjects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
+    collaboratedProjects: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Project" },
+    ],
   },
-  { timestamps: true, _id: false }
+  { timestamps: true }
 );
 
 export const User = mongoose.model("User", userSchema);

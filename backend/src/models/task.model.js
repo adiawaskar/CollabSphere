@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
-import { v4 as uuidv4 } from "uuid";
 
 const taskSchema = new mongoose.Schema(
   {
-    _id: { type: String, default: uuidv4 },
     project_id: { type: String, ref: "Project", required: true }, // Referencing by UUID string
     name: { type: String, required: true, trim: true },
     description: { type: String, trim: true },
@@ -20,7 +18,7 @@ const taskSchema = new mongoose.Schema(
     },
     due_date: { type: Date },
   },
-  { timestamps: true, _id: false }
+  { timestamps: true }
 );
 
 export const Task = mongoose.model("Task", taskSchema);

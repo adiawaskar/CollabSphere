@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
-import { v4 as uuidv4 } from "uuid";
 
 const documentSchema = new mongoose.Schema(
   {
-    _id: { type: String, default: uuidv4 },
     project_id: { type: String, ref: "Project", required: true }, // Referencing by UUID string
     name: { type: String, required: true, trim: true },
     type: { type: String },
@@ -17,7 +15,7 @@ const documentSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true, _id: false }
+  { timestamps: true }
 );
 
 export const Document = mongoose.model("Document", documentSchema);

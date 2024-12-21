@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Landing = () => {
+  useEffect(() => {
+    document.title = 'CollabSphere';
+    return () => {
+      document.title = 'Vite + React';
+    }
+  }, []);
+
   return (
     <div
       className="w-screen h-screen bg-cover bg-center flex items-center"
