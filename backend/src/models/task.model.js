@@ -1,24 +1,16 @@
 import mongoose from "mongoose";
 
-const taskSchema = new mongoose.Schema(
-  {
-    project_id: { type: String, ref: "Project", required: true }, // Referencing by UUID string
-    name: { type: String, required: true, trim: true },
-    description: { type: String, trim: true },
-    assigned_to: { type: String, ref: "User" }, // Referencing by UUID string
-    status: {
-      type: String,
-      enum: ["To Do", "In Progress", "Done"],
-      default: "To Do",
-    },
-    priority: {
-      type: String,
-      enum: ["Low", "Medium", "High"],
-      default: "Medium",
-    },
-    due_date: { type: Date },
+const taskSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String },
+  storyPoints: { type: Number, default: 1 },
+  status: {
+    type: String,
+    enum: ["To Do", "In Progress", "Done"],
+    default: "To Do",
   },
-  { timestamps: true }
-);
+  column: { type: String, ref: "Column", required: true },
+});
+
 
 export const Task = mongoose.model("Task", taskSchema);

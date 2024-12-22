@@ -11,6 +11,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isNewProjectModalOpen, setIsNewProjectModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const [newProjectData, setNewProjectData] = useState({
     name: "",
     description: "",
@@ -175,6 +176,10 @@ const Home = () => {
     }
   };
 
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+  };
+
   if (loading) {
     return <div>Loading projects...</div>;
   }
@@ -316,8 +321,10 @@ const Home = () => {
           My Projects
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {myProjects.map((project, index) => (
-            <Card key={index} project={project} />
+          {myProjects.map((project) => (
+            <Link key={project.name} to={`/dashboard/${project.name}`} style={{textDecoration:"none", color:"inherit"}}> {/* Use Link and correct path */}
+              <Card project={project} />
+            </Link>
           ))}
         </div>
       </section>
@@ -327,8 +334,10 @@ const Home = () => {
           Collaborative Projects
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {collaborativeProjects.map((project, index) => (
-            <Card key={index} project={project} />
+          {collaborativeProjects.map((project) => (
+            <Link key={project.name} to={`/dashboard/${project.name}`} style={{textDecoration:"none", color:"inherit"}}> {/* Use Link and correct path */}
+              <Card project={project} />
+            </Link>
           ))}
         </div>
       </section>

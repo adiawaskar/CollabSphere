@@ -9,6 +9,8 @@ const projectSchema = new mongoose.Schema(
     tasks: [{ type: String, ref: "Task" }],
     documents: [{ type: String, ref: "Document" }],
     team_id: { type: String, required: true, unique: true },
+    total_story_points: { type: Number, default: 0 },
+    completed_story_points: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

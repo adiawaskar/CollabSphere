@@ -151,4 +151,42 @@ router.get("/personal/:userEmail", async (req, res) => {
   }
 });
 
+router.put("/:projectId/update-task-order", async (req, res) => {
+  try {
+    const projectId = req.params.projectId;
+    const newTaskOrder = req.body.taskIds;
+
+    const project = await Project.findById(projectId);
+
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
+    }
+
+    project.tasks = newTaskOrder.map((taskId) =>
+      project.tasks.find((task) => task._id.toString() === taskId)
+    );
+
+    await project.save();
+
+    res.status(200).json({ message: "Task order updated successfully" });
+  } catch (error) {
+    console.error("Error updating task order:", error);
+    res.status(500).json({ error: "Failed to update task order" });
+  }
+});
+
+router.put("/:projectId/update-story-points", async (req, res) => {
+  try {
+    const projectId = req.params.projectId;
+    const updatedTask = req.body;
+
+    await updateProjectStoryPoints(projectId, updatedTask);
+
+    res.status(200).json({ message: "Story points updated successfully" });
+  } catch (error) {
+    console.error("Error updating story points:", error);
+    res.status(500).json({ error: "Failed to update story points" });
+  }
+});
+
 export default router;
