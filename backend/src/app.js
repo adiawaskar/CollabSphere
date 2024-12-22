@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from './routes/authRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
+import dashRoutes from './routes/dashRoutes.js';
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
+app.use("/api/tasks", dashRoutes);
 
 //routes import
 

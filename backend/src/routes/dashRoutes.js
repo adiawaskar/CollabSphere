@@ -1,60 +1,67 @@
-const express = require("express");
+import express from "express";
+import { Task } from "../models/task.model.js";
+
 const router = express.Router();
-const { Task, Column, Project } = require("../models");
 
-router.post(
-  "projects/:projectId/columns/:columnId/tasks",
-  async (req, res) => {
-    try {
-      const { projectId, columnId } = req.params;
-      const { name, description, storyPoints } = req.body;
-
-      const newTask = new Task({
-        name,
-        description,
-        storyPoints,
-        column: columnId,
-      });
-      await newTask.save();
-
-      const column = await Column.findById(columnId);
-      column.tasks.push(newTask._id);
-      await column.save();
-
-      res.status(201).json(newTask);
-    } catch (error) {
-      console.error("Error creating task:", error);
-      res.status(500).json({ error: "Failed to create task" });
-    }
-  }
-);
-
-router.put("/tasks/:taskId", async (req, res) => {
+// 1. GET /api/tasks (Retrieve all tasks, optionally filtered by status/column)
+router.get("/", async (req, res) => {
   try {
-    const { taskId } = req.params;
-    const { column } = req.body;
-
-    const task = await Task.findById(taskId);
-    if (!task) {
-      return res.status(404).json({ message: "Task not found" });
-    }
-
-    const previousColumn = await Column.findById(task.column);
-    previousColumn.tasks.pull(taskId);
-    await previousColumn.save();
-
-    task.column = column;
-    await task.save();
-
-    const newColumn = await Column.findById(column);
-    newColumn.tasks.push(taskId);
-    await newColumn.save();
-
-    res.status(200).json({ message: "Task updated successfully" });
+    const { status } = req.query; // Use 'status' to filter
+    const filter = status ? { status } : {};
+    const tasks = await Task.find(filter);
+    res.json(tasks);
   } catch (error) {
-    console.error("Error updating task:", error);
-    res.status(500).json({ error: "Failed to update task" });
+    res.status(500).json({ message: error.message });
   }
 });
 
-module.exports = router;
+// 2. POST /api/tasks (Create a new task)
+router.post("/", async (req, res) => {
+  try {
+    const newTask = new Task(req.body);
+    await newTask.save();
+    res.status(201).json(newTask);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.put("/:taskName", async (req, res) => {
+  // Use :taskName as the parameter
+  try {
+    const updatedTask = await Task.findOneAndUpdate(
+      { name: req.params.taskName }, // Find by name
+      req.body,
+      { new: true, runValidators: true } // Important: run validators to ensure the update is valid
+    );
+
+    if (!updatedTask) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+    res.json(updatedTask);
+  } catch (error) {
+    if (
+      error.code === 11000 &&
+      error.keyPattern &&
+      error.keyPattern.name === 1
+    ) {
+      return res.status(400).json({ message: "Task name already exists" });
+    }
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// 4. DELETE /api/tasks/:taskId (Delete a task)
+router.delete("/:taskId", async (req, res) => {
+  try {
+    const deletedTask = await Task.findByIdAndDelete(req.params.taskId);
+    if (!deletedTask) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+    res.json({ message: "Task deleted" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+export default router;
