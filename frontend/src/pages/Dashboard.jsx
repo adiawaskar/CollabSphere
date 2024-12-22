@@ -11,7 +11,6 @@ import BurnUpChart from "../components/charts/BurnUpChart";
 import VideoConference from "../components/charts/VideoConference";
 import SharedDocument from "../components/charts/SharedDocument";
 import TeamChat from "../components/charts/TeamChat";
-import DocumentRepository from "./DocumentRepository";
 
 function Dashboard() {
   const { projectName } = useParams();
@@ -43,7 +42,7 @@ function Dashboard() {
       case "Burn Up Chart":
         return <BurnUpChart />;
       case "Video Conference":
-        return <VideoConference />;
+        return <VideoConference projectName={projectName} />;
       case "Shared Document":
         return <SharedDocument />;
       case "Team Chat":

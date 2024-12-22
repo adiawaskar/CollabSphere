@@ -42,7 +42,8 @@
     "tailwindcss": "^3.4.17",
     "y-prosemirror": "^1.2.15",
     "y-protocols": "^1.0.6",
-    "yjs": "^13.6.21"
+    "yjs": "^13.6.21",
+    "@jitsi/react-sdk": "^1.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
