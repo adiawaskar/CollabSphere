@@ -27,15 +27,13 @@ function Dashboard() {
     switch (selectedFeature) {
       case "Kanban Board":
         return (
-          <ErrorBoundary>
-            <TaskBox
-              projectName={projectName}
-              events={events}
-              setEvents={setEvents}
-              currentEvent={currentEvent}
-              setCurrentEvent={setCurrentEvent}
-            />
-          </ErrorBoundary>
+          <TaskBox
+            projectName={projectName}
+            events={events}
+            setEvents={setEvents}
+            currentEvent={currentEvent}
+            setCurrentEvent={setCurrentEvent}
+          />
         );
       case "Gantt Chart":
         return <GanttChart />;
@@ -51,15 +49,13 @@ function Dashboard() {
         return <TeamChat />;
       default:
         return (
-          <ErrorBoundary>
-            <TaskBox
-              projectName={projectName}
-              events={events}
-              setEvents={setEvents}
-              currentEvent={currentEvent}
-              setCurrentEvent={setCurrentEvent}
-            />
-          </ErrorBoundary>
+          <TaskBox
+            projectName={projectName}
+            events={events}
+            setEvents={setEvents}
+            currentEvent={currentEvent}
+            setCurrentEvent={setCurrentEvent}
+          />
         );
     }
   };
