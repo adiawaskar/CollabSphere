@@ -1,0 +1,186 @@
+/* Main container with gradient background */
+.team-chat-container {
+  display: flex;
+  height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #f6f0ff 0%, #e9d5ff 100%);
+  margin-top: 64px;
+  padding: 2rem;
+}
+
+/* Join Form Styling */
+.join-chat-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.join-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(128, 90, 213, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.join-form h2 {
+  color: #4a5568;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.join-form-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.join-form-input:focus {
+  outline: none;
+  border-color: #805ad5;
+  box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.1);
+}
+
+.join-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #805ad5, #6b46c1);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.join-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 70, 193, 0.2);
+}
+
+/* Chat Interface Styling */
+.chat-interface {
+  display: flex;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(128, 90, 213, 0.15);
+}
+
+/* Users Sidebar - Updated */
+.users-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #805ad5 0%, #6b46c1 100%);
+  padding: 1.5rem;
+  color: white;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-item {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+.user-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.user-avatar {
+  background: white;
+  color: #805ad5;
+}
+
+.user-name {
+  color: white;
+}
+
+/* Chat Area - Updated */
+.chat-area {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+}
+
+.message-content {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.message.received .message-content {
+  background: white;
+  border-left: 4px solid #805ad5;
+}
+
+.message.sent .message-content {
+  background: linear-gradient(135deg, #805ad5, #6b46c1);
+  border: none;
+}
+
+/* Message Input - Updated */
+.message-input-container {
+  padding: 1.5rem;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.message-input {
+  background: #f8fafc;
+}
+
+.send-button {
+  background: linear-gradient(135deg, #805ad5, #6b46c1);
+  padding: 0.75rem 1.5rem;
+}
+
+.send-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 70, 193, 0.2);
+}
+
+/* Scrollbar Styling */
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: #f7fafc;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+} 

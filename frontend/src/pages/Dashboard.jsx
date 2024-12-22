@@ -11,6 +11,7 @@ import BurnUpChart from "../components/charts/BurnUpChart";
 import VideoConference from "../components/charts/VideoConference";
 import SharedDocument from "../components/charts/SharedDocument";
 import TeamChat from "../components/charts/TeamChat";
+import TeamGames from '../components/charts/TeamGames';
 
 function Dashboard() {
   const { projectName } = useParams();
@@ -47,6 +48,8 @@ function Dashboard() {
         return <SharedDocument />;
       case "Team Chat":
         return <TeamChat />;
+      case "Team Games":
+        return <TeamGames />;
       default:
         return (
           <TaskBox
