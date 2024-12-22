@@ -12,7 +12,7 @@ import { BsKanbanFill } from "react-icons/bs";
 const Feature = ({ name, Icon, onClick, isSelected }) => (
   <button
     className={`flex items-center w-full p-3 rounded-md transition-colors duration-200 ${
-      isSelected ? "bg-blue-500 text-white font-medium" : "hover:bg-gray-100"
+      isSelected ? "bg-purple-900 text-white font-medium" : "hover:bg-gray-100"
     }`}
     onClick={onClick}
   >
@@ -40,10 +40,10 @@ const EventBar = ({ projectName, setFeature, selectedFeature }) => {
   );
 
   return (
-    <div className="w-64 bg-gray-50 border-r border-gray-200 p-4 flex flex-col h-full">
+    <div className="w-64 bg-purple-200 border-r border-gray-200 p-4 flex flex-col h-full">
       <div className="mb-4">
         {projectName ? (
-          <h1 className="text-lg font-semibold text-center">{projectName}</h1>
+          <h1 className="text-lg font-bold text-center">{projectName}</h1>
         ) : (
           <h1 className="text-lg font-semibold text-center">Loading...</h1>
         )}

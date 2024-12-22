@@ -16,6 +16,7 @@
   flex: 1;
   min-width: 1070px;
   background-color: #fefefe;
+  /* background-color: #f7c1ff; */
 }
 
 .add-button {
@@ -23,7 +24,7 @@
   height: 45px;
   font-size: 1.3em;
   line-height: 45px;
-  background-color: #eaf1f0;
+  background-color: #eaedf1;
   margin: 0 auto;
   border-radius: 10px;
   margin-bottom: 20px;

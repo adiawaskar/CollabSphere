@@ -38,6 +38,7 @@
     "react-router-dom": "^7.1.0",
     "react-toastify": "^11.0.2",
     "react-uuid": "^2.0.0",
+    "socket.io-client": "^4.8.1",
     "tailwindcss": "^3.4.17",
     "y-prosemirror": "^1.2.15",
     "y-protocols": "^1.0.6",

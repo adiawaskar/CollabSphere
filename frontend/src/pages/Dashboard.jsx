@@ -11,6 +11,7 @@ import BurnUpChart from "../components/charts/BurnUpChart";
 import VideoConference from "../components/charts/VideoConference";
 import SharedDocument from "../components/charts/SharedDocument";
 import TeamChat from "../components/charts/TeamChat";
+import DocumentRepository from "./DocumentRepository";
 
 function Dashboard() {
   const { projectName } = useParams();
