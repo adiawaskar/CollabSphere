@@ -3,7 +3,8 @@ import axios from 'axios';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-
+import { motion } from "framer-motion";
+import { FiUser, FiMail, FiLock, FiUserPlus, FiLogIn } from "react-icons/fi";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -67,88 +68,90 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <div
-      className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
-      style={{ backgroundImage: `url('/landing_bg.jpg')` }}
-    >
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          {isRegistering ? "Create an account" : "Sign in to your account"}
-        </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Or{" "}
-          <button
-            type="button"
-            onClick={() => setIsRegistering(!isRegistering)}
-            className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none"
-          >
-            {isRegistering ? "sign in to your account" : "create a new account"}
-          </button>
-        </p>
+    <div className="min-h-screen relative overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      {/* Animated Background Gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-100 to-indigo-100">
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+      <div className="w-full max-w-md relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8"
+        >
+          {/* Logo or Brand */}
+          <div className="text-center mb-8">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 500, delay: 0.2 }}
+              className="mx-auto bg-gradient-to-r from-purple-600 to-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mb-4"
+            >
+              <FiUser className="text-3xl text-white" />
+            </motion.div>
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              {isRegistering ? "Create Account" : "Welcome Back"}
+            </h2>
+            <p className="mt-2 text-gray-600">
+              {isRegistering ? "Join our community today" : "Sign in to continue"}
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             {isRegistering && (
-              <>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="space-y-6"
+              >
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Your Name
-                  </label>
-                  <div className="mt-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <div className="relative">
+                    <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     <input
-                      id="name"
                       name="name"
                       type="text"
                       required
-                      className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                      className="pl-10 w-full px-4 py-3 rounded-xl border-2 border-purple-100 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all bg-white/50"
+                      placeholder="Enter your name"
                       onChange={handleChange}
                       value={formData.name}
                     />
                   </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="employeeId"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Employee ID
-                  </label>
-                  <div className="mt-1">
+
+                {/* <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Employee ID</label>
+                  <div className="relative">
+                    <FiUserPlus className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     <input
-                      id="employeeId"
                       name="employeeId"
                       type="text"
                       required
-                      className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                      className="pl-10 w-full px-4 py-3 rounded-xl border-2 border-purple-100 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all bg-white/50"
+                      placeholder="Enter employee ID"
                       onChange={handleChange}
                       value={formData.employeeId}
                     />
                   </div>
-                </div>
-              </>
+                </div> */}
+              </motion.div>
             )}
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email address
-              </label>
-              <div className="mt-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <div className="relative">
+                <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
-                  id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
                   required
-                  className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
+                  className="pl-10 w-full px-4 py-3 rounded-xl border-2 border-purple-100 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all bg-white/50"
+                  placeholder="Enter your email"
                   onChange={handleChange}
                   value={formData.email}
                 />
@@ -156,21 +159,15 @@ const LoginPage = () => {
             </div>
 
             <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                {isRegistering ? "Create Password" : "Password"}
-              </label>
-              <div className="mt-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <div className="relative">
+                <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
-                  id="password"
                   name="password"
                   type="password"
-                  autoComplete="new-password"
                   required
-                  className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder={isRegistering ? "Create Password" : "Password"}
+                  className="pl-10 w-full px-4 py-3 rounded-xl border-2 border-purple-100 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all bg-white/50"
+                  placeholder={isRegistering ? "Create password" : "Enter password"}
                   onChange={handleChange}
                   value={formData.password}
                 />
@@ -178,43 +175,42 @@ const LoginPage = () => {
             </div>
 
             {!isRegistering && (
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between text-sm">
                 <div className="flex items-center">
                   <input
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
                   />
-                  <label
-                    htmlFor="remember-me"
-                    className="ml-2 block text-sm text-gray-900"
-                  >
-                    Remember me
-                  </label>
+                  <label htmlFor="remember-me" className="ml-2 text-gray-600">Remember me</label>
                 </div>
-
-                <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    Forgot your password?
-                  </a>
-                </div>
+                <a href="#" className="text-purple-600 hover:text-purple-500 font-medium">
+                  Forgot password?
+                </a>
               </div>
             )}
 
-            <div>
-              <button
-                type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                {isRegistering ? "Create Account" : "Sign in"}
-              </button>
-            </div>
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 font-medium shadow-lg shadow-purple-200/50 transition-all"
+            >
+              {isRegistering ? <FiUserPlus /> : <FiLogIn />}
+              {isRegistering ? "Create Account" : "Sign In"}
+            </motion.button>
           </form>
-        </div>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setIsRegistering(!isRegistering)}
+              className="text-purple-600 hover:text-purple-500 font-medium transition-colors"
+            >
+              {isRegistering ? "Already have an account? Sign in" : "Need an account? Create one"}
+            </button>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
