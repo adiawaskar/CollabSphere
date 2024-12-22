@@ -67,8 +67,8 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
   };
 
   return (
-    <div className='column'>
-      {tag}
+    <div className='column' data-column-id={tag}>
+      <div className="column-header">{tag}</div>
       <AddTaskButton handleClick={handleAdd} />
       <Droppable droppableId={tag}>
         {(provided, snapshot) => {
@@ -81,24 +81,24 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
               {events
                 .find((event) => event.title === currentEvent.title)
                 ?.[tag].map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id}
-                      index={index}
-                    >
-                      {(provided, snapshot) => (
-                          <Task
-                            name={item.name}
-                            details={item.details}
-                            id={item.id}
-                            provided={provided}
-                            snapshot={snapshot}
-                            handleRemove={handleRemove}
-                            handleUpdate={handleUpdate}
-                          />
-                        )}
-                    </Draggable>
-                  ))}
+                  <Draggable
+                    key={item.id}
+                    draggableId={item.id}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <Task
+                        name={item.name}
+                        details={item.details}
+                        id={item.id}
+                        provided={provided}
+                        snapshot={snapshot}
+                        handleRemove={handleRemove}
+                        handleUpdate={handleUpdate}
+                      />
+                    )}
+                  </Draggable>
+                ))}
               {provided.placeholder}
             </div>
           );
