@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
@@ -42,7 +42,7 @@ const VideoConference = ({ projectName }) => {
         <div className="space-y-6">
           <div className="flex justify-center">
             <button
-              onClick={startNewMeeting}
+              onClick={() => navigate('/video-conference/kanban-1453678901')}
               disabled={isCreatingMeeting}
               className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 
                        transition-colors duration-200 disabled:opacity-50"
