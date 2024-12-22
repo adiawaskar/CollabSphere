@@ -198,29 +198,40 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="relative w-full h-screen flex justify-center items-center text-purple-900 text-center z-10">
-        <div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to CollabSphere{" "}
-          </h1>
-          {" "}
-          <p className="text-lg md:text-2xl">Collaborate, Manage, and Succeed Together{" "}
-          </p>
-          <div className="flex justify-center mt-8">
-            <button
-              className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 shadow-sm"
-              onClick={handleOpenNewProjectModal}
-            >
-              Start a new Project
-            </button>
-            <button
-              className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded ml-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 shadow-sm"
-              onClick={handleOpenJoinProjectModal}
-            >
-              Join an Existing Project
-            </button>
-          </div>
+    <div className="relative w-full h-screen flex justify-between items-center text-purple-900">
+      {/* Left Side: Image */}
+      <div className="w-2/3 lg:w-2/5 flex justify-center items-center ml-20">
+        <img
+          src="/teamwork.avif"
+          alt="Teamwork"
+          className="rounded-3xl w-full h-auto max-w-3xl object-cover"
+        />
+      </div>
+
+      {/* Right Side: Text and Buttons */}
+      <div className="w-1/3 lg:w-2/5 flex flex-col justify-center items-center text-center p-10 bg-white bg-opacity-70 rounded-3xl mr-20">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          Welcome to CollabSphere
+        </h1>
+        <p className="text-lg md:text-2xl mb-8">
+          Collaborate, Manage, and Succeed Together
+        </p>
+        <div className="flex justify-center mt-8 space-x-4">
+          <button
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 shadow-sm"
+            onClick={handleOpenNewProjectModal}
+          >
+            Start a new Project
+          </button>
+          <button
+            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 shadow-sm"
+            onClick={handleOpenJoinProjectModal}
+          >
+            Join an Existing Project
+          </button>
         </div>
       </div>
+    </div>
 
       {isNewProjectModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
@@ -316,31 +327,43 @@ const Home = () => {
         </div>
       )}
 
-      <section className="py-16 px-4 text-center relative z-20">
+      <section className="py-16 px-6 text-center relative z-20">
         <h2 className="text-6xl text-purple-900 font-extrabold mb-8 leading-tight">
           My Projects
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 bg-slate-50 bg-opacity-40 rounded-3xl sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-8 max-w-screen-xl mx-auto">
           {myProjects.map((project) => (
-            <Link key={project.name} to={`/dashboard/${project.name}`} style={{textDecoration:"none", color:"inherit"}}> {/* Use Link and correct path */}
+            <Link
+              key={project.name}
+              to={`/dashboard/${project.name}`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               <Card project={project} />
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="py-16 px-4 text-center relative z-20">
-        <h2 className="text-6xl text-purple-900 font-extrabold mb-8 leading-tight">
-          Collaborative Projects
-        </h2>
+
+      <section className="py-16 px-6 text-center relative z-20">
+      <h2 className="text-6xl text-purple-900 font-extrabold mb-8 leading-tight">
+        Collaborative Projects
+      </h2>
+      <div className="max-w-screen-xl mx-auto bg-slate-50 bg-opacity-40 rounded-3xl px-8 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {collaborativeProjects.map((project) => (
-            <Link key={project.name} to={`/dashboard/${project.name}`} style={{textDecoration:"none", color:"inherit"}}> {/* Use Link and correct path */}
+            <Link
+              key={project.name}
+              to={`/dashboard/${project.name}`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               <Card project={project} />
             </Link>
           ))}
         </div>
-      </section>
+      </div>
+    </section>
+
     </div>
   );
 };
