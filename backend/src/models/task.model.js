@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   description: { type: String },
   storyPoints: { type: Number, default: 1 },
   status: {
@@ -9,7 +9,6 @@ const taskSchema = new mongoose.Schema({
     enum: ["To Do", "In Progress", "Done"],
     default: "To Do",
   },
-  column: { type: String, ref: "Column", required: true },
 });
 
 

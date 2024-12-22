@@ -1,12 +1,12 @@
-import AddTaskButton from './AddTaskButton';
-import Task from './Task';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
-import uuid from 'react-uuid';
+import AddTaskButton from "./AddTaskButton";
+import Task from "./Task";
+import { Droppable, Draggable } from "react-beautiful-dnd";
+import uuid from "react-uuid";
 
 const Column = ({ tag, currentEvent, events, setEvents }) => {
   const handleAdd = () => {
-    const name = prompt('Enter task name:');
-    const details = prompt('Enter details:');
+    const name = prompt("Enter task name:");
+    const details = prompt("Enter details:");
     if (!(name && details)) return;
     setEvents((prev) => {
       const arrCopy = [...prev];
@@ -44,8 +44,8 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
   };
 
   const handleUpdate = (id) => {
-    const name = prompt('Update task name:');
-    const details = prompt('Update details:');
+    const name = prompt("Update task name:");
+    const details = prompt("Update details:");
     if (!(name && details)) return;
     setEvents((prev) =>
       prev.map((event) => {
@@ -74,31 +74,31 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
         {(provided, snapshot) => {
           return (
             <div
-              className='task-container'
+              className="task-container"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
               {events
                 .find((event) => event.title === currentEvent.title)
                 ?.[tag].map((item, index) => (
-                  <Draggable
-                    key={item.id}
-                    draggableId={item.id}
-                    index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <Task
-                        name={item.name}
-                        details={item.details}
-                        id={item.id}
-                        provided={provided}
-                        snapshot={snapshot}
-                        handleRemove={handleRemove}
-                        handleUpdate={handleUpdate}
-                      />
-                    )}
-                  </Draggable>
-                ))}
+                    <Draggable
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                          <Task
+                            name={item.name}
+                            details={item.details}
+                            id={item.id}
+                            provided={provided}
+                            snapshot={snapshot}
+                            handleRemove={handleRemove}
+                            handleUpdate={handleUpdate}
+                          />
+                        )}
+                    </Draggable>
+                  ))}
               {provided.placeholder}
             </div>
           );

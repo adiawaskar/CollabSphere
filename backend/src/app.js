@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from './routes/authRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import videoConferenceRoutes from './routes/videoConferenceRoutes.js';
+import dashRoutes from './routes/dashRoutes.js';
 
 
 const app = express();

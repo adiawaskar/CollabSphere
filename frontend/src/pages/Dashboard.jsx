@@ -104,9 +104,7 @@ function Dashboard() {
         selectedFeature={selectedFeature}
         setFeature={setSelectedFeature} // Pass the setter function
       />
-      <div className="flex-grow mt-12 overflow-y-auto">
-        {renderFeature()}
-      </div>
+      <div className="flex-grow mt-12 overflow-y-auto">{renderFeature()}</div>
     </div>
   );
 }
