@@ -20,8 +20,13 @@ export const AuthProvider = ({ children }) => {
     }
   }, [userEmail]);
 
+  const logout = () => {
+    setUserEmail(null);
+    localStorage.removeItem("userEmail");
+  };
+
   return (
-    <AuthContext.Provider value={{ email: userEmail, setEmail: setUserEmail }}>
+    <AuthContext.Provider value={{ email: userEmail, setEmail: setUserEmail, logout: logout }}>
       {children}
     </AuthContext.Provider>
   );
