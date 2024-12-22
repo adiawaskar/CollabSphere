@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from './routes/authRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
+import videoConferenceRoutes from './routes/videoConferenceRoutes.js';
 import dashRoutes from './routes/dashRoutes.js';
 
 
@@ -19,7 +20,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
-app.use("/api/tasks", dashRoutes);
+app.use("/api/video-conference", videoConferenceRoutes);
 
 //routes import
 

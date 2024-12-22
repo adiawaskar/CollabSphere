@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import DocumentRepository from './pages/DocumentRepository';
 import Editor from './pages/Editor';
 import Dashboard from './pages/Dashboard';
+import VideoConference from './components/VideoConference';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/documents" element={<DocumentRepository/>} />
           <Route path="/edit/:docId" element={<Editor />} />
           <Route path="/view/:docId" element={<Editor isReadOnly />} />
+          <Route path="/video-conference/:sessionId" element={<VideoConference />} />
         </Routes>
         <ToastContainer/>
       </AuthProvider>

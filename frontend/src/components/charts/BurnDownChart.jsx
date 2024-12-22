@@ -109,7 +109,7 @@ const BurnDownChart = () => {
   };
 
   return (
-    <div style={{ height: "400px", width: "100%" }}>
+    <div style={{ height: "750px", width: "100%" }}>
       {Object.keys(chartData).length > 0 && (
         <Line data={chartData} options={options} />
       )}
