@@ -6,6 +6,7 @@ import {
   MdVideoCall,
   MdInsertDriveFile,
   MdChat,
+  MdGames,
 } from "react-icons/md";
 import { BsKanbanFill } from "react-icons/bs";
 
@@ -30,6 +31,7 @@ const EventBar = ({ projectName, setFeature, selectedFeature }) => {
     { name: "Video Conference", Icon: MdVideoCall },
     { name: "Shared Document", Icon: MdInsertDriveFile },
     { name: "Team Chat", Icon: MdChat },
+    { name: "Team Games", Icon: MdGames },
   ];
 
   const handleFeatureClick = useCallback(

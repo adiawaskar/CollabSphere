@@ -1,41 +1,73 @@
+.event-bar {
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  padding: 20px 0;
+}
+
 .event-bar-title {
-  font-size: 2.5em;
-  padding: 25px 0;
-  font-weight: 400;
-  font-style: italic;
+  font-size: 2em;
+  font-weight: 600;
+  color: #2d3748;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #edf2f7;
 }
 
 .event-container {
-  height: 700px;
-  padding: 0 30px;
-  overflow: auto;
+  height: calc(100vh - 180px);
+  padding: 16px;
+  overflow-y: auto;
 }
 
 .event {
-  font-size: 1.5em;
-  line-height: 1.5em;
-  max-width: 230px;
-  font-weight: 400;
-  border-radius: 10px;
-  padding: 5px 10px;
-  margin-bottom: 10px;
-  transition: 0.5s;
+  background: white;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  color: #4a5568;
   cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #edf2f7;
 }
 
 .event:hover {
-  color: #fff;
-  background-color: #e86b3dc4;
-  transition: 0.5s;
+  background-color: #f7fafc;
+  transform: translateX(4px);
+  border-color: #805ad5;
 }
 
 .selected-event {
-  color: #fff;
-  background-color: #e86a3d;
+  background-color: #805ad5;
+  color: white;
+  border-color: #805ad5;
+}
+
+.selected-event:hover {
+  background-color: #6b46c1;
+  color: white;
 }
 
 .over-hide {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Scrollbar for event container */
+.event-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.event-container::-webkit-scrollbar-track {
+  background: #f7fafc;
+}
+
+.event-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.event-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
 }

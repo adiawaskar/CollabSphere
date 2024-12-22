@@ -1,0 +1,372 @@
+/* Word Chain Styles */
+.word-chain-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #4A5568;
+}
+
+.word-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.word-input {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid #E2E8F0;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.error-message {
+  color: #E53E3E;
+  font-size: 0.9rem;
+}
+
+.submit-word {
+  padding: 0.75rem;
+  background: #805AD5;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.word-list {
+  margin-top: 2rem;
+}
+
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.word-item {
+  color: #4A5568;
+  font-size: 1.1rem;
+}
+
+/* Team Trivia Styles */
+.trivia-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.question-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.question-count {
+  font-size: 1.2rem;
+  color: #4A5568;
+  margin-bottom: 1rem;
+}
+
+.timer {
+  font-size: 1.1rem;
+  color: #805AD5;
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  color: #2D3748;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answer-button {
+  padding: 1rem;
+  border: 2px solid #E2E8F0;
+  border-radius: 0.5rem;
+  background: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.answer-button:hover {
+  background: #F7FAFC;
+}
+
+.answer-button.correct {
+  background: #48BB78;
+  color: white;
+  border-color: #48BB78;
+}
+
+.answer-button.incorrect {
+  background: #E53E3E;
+  color: white;
+  border-color: #E53E3E;
+}
+
+.score-section {
+  text-align: center;
+  padding: 2rem;
+}
+
+.score-section h2 {
+  font-size: 2rem;
+  color: #2D3748;
+  margin-bottom: 1rem;
+}
+
+.reset-button {
+  padding: 0.75rem 2rem;
+  background: #805AD5;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.reset-button:hover {
+  background: #6B46C1;
+} 
+
+/* Chess Styles */
+.chess-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.chess-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.current-player {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: #2D3748;
+}
+
+.player-icon {
+  font-size: 1.5rem;
+}
+
+.player-icon.white {
+  color: #805AD5;
+}
+
+.player-icon.black {
+  color: #2D3748;
+}
+
+.chess-board {
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  border: 2px solid #2D3748;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.board-square {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.board-square.light {
+  background-color: #F7FAFC;
+}
+
+.board-square.dark {
+  background-color: #805AD5;
+}
+
+.board-square.selected {
+  background-color: #68D391;
+}
+
+.piece {
+  user-select: none;
+}
+
+.piece.white {
+  color: #F7FAFC;
+}
+
+.piece.black {
+  color: #2D3748;
+}
+
+.move-history {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.moves-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.move-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #E2E8F0;
+  color: #4A5568;
+}
+
+/* Team Puzzle Styles */
+.puzzle-container {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.puzzle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.puzzle-stats {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+  color: #4A5568;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  background: #E2E8F0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.puzzle-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #805AD5;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.puzzle-tile.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.completion-message {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.trophy-icon {
+  font-size: 3rem;
+  color: #F6E05E;
+  margin-bottom: 1rem;
+}
+
+.new-record {
+  color: #48BB78;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Enhanced Word Chain Styles */
+.word-chain-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.word-input {
+  background: #F7FAFC;
+  transition: all 0.2s;
+}
+
+.word-input:focus {
+  border-color: #805AD5;
+  box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.2);
+}
+
+/* Enhanced Team Trivia Styles */
+.trivia-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.answer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+
+.answer-button:hover::after {
+  transform: translateX(100%);
+} 
