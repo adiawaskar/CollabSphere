@@ -4,4 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://zk5qw40k.collab.tiptap.cloud',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
+  }
 })

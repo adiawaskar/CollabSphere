@@ -1,0 +1,94 @@
+.tiptap:first-child {
+  margin-top: 0;
+}
+
+.ProseMirror {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0 0 4px 4px;
+  min-height: 200px;
+}
+
+.ProseMirror:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.menuBar {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  background-color: #f5f5f5;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.menuBar button {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.menuBar button:hover {
+  background-color: #f0f0f0;
+}
+
+.menuBar button.is-active {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+
+.editor-wrapper {
+  position: relative;
+  margin: 1rem auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.save-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.collaboration-cursor__caret {
+  position: relative;
+  margin-left: -1px;
+  margin-right: -1px;
+  border-left: 1px solid #0D0D0D;
+  border-right: 1px solid #0D0D0D;
+  word-break: normal;
+  pointer-events: none;
+}
+
+.collaboration-cursor__label {
+  position: absolute;
+  top: -1.4em;
+  left: -1px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  user-select: none;
+  color: #fff;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.collaboration-cursor__selection {
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+} 
