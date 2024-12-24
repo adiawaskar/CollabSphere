@@ -89,9 +89,9 @@ const Landing = () => {
           </h2>
           <div className="flex flex-wrap justify-center gap-12 items-center opacity-70">
             {/* Add company logos here */}
-            <img src="/company1.png" alt="Company 1" className="h-12" />
-            <img src="/company2.png" alt="Company 2" className="h-12" />
-            <img src="/company3.png" alt="Company 3" className="h-12" />
+            <img src="/collaboration.png" alt="Company 1" className="h-40" />
+            <img src="/collaboration2.png" alt="Company 2" className="h-40" />
+            <img src="/collaboration3.png" alt="Company 3" className="h-40" />
           </div>
         </div>
       </section>
